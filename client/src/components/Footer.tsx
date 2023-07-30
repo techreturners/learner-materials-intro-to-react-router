@@ -1,3 +1,7 @@
-const Footer: React.FC = () => <>copyright, nav</>;
+const Footer: React.FC = () => (
+  <>
+    <span className='author'>Atty Cronin</span>
+  </>
+);
 
 export default Footer;
