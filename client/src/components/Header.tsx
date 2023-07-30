@@ -1,9 +1,8 @@
 import Nav from './Nav';
 import Logo from './Logo';
-import './Header.css';
 
 const Header: React.FC = () => (
-  <header className='header'>
+  <header className='header w-full flex justify-around'>
     <Logo />
     <Nav />
   </header>
