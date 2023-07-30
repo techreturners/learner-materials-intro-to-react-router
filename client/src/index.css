@@ -1,10 +1,20 @@
-@import "tailwindcss/base";
+@import 'tailwindcss/base';
 
-@import "tailwindcss/components";
+@import 'tailwindcss/components';
 
-@import "tailwindcss/utilities";
+@import 'tailwindcss/utilities';
 
-html, body {
+:root {
+  --highlight: #b7990d;
+  --link: #383961;
+  --light: #feffea;
+  --dark: #3b1f2b;
+  --accent: #cc7178;
+  --padding-standard: 20px;
+}
+
+html,
+body {
   height: 100%;
 }
 
@@ -26,13 +36,16 @@ html, body {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  text-decoration: underline;
 }
-
+.active {
+  color: var(--light);
+  background-color: #cc7178;
+}
 body {
   margin: 0;
   display: flex;
@@ -40,6 +53,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--light);
 }
 header {
   display: flex;
