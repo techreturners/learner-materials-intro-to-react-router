@@ -2,7 +2,7 @@ import Nav from './Nav';
 import Logo from './Logo';
 
 const Header: React.FC = () => (
-  <header className='header w-full flex justify-around'>
+  <header className='header w-full justify-between'>
     <Logo />
     <Nav />
   </header>
