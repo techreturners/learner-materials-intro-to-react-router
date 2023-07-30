@@ -1,9 +1,14 @@
 import Header from './Header';
 import Footer from './Footer';
 
-const Layout: React.FC = () => (
+interface ILayoutProps {
+  children: object;
+}
+
+const Layout: React.FC<ILayoutProps> = ({ children }) => (
   <>
     <Header />
+    {children}
     <Footer />
   </>
 );
