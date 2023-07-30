@@ -15,7 +15,6 @@ function App() {
         <Route path='/misdemeanours' element={<Misdemeanours />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
-      <h1>Vite + React</h1>
     </>
   );
 }
