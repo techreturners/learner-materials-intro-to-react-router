@@ -6,8 +6,10 @@ interface INavItem {
 }
 
 const NavItem: React.FC<INavItem> = ({ to, text }) => (
-  <li className='px-1 m-1 capitalize'>
-    <NavLink to={to}>{text}</NavLink>
+  <li className='p-1 m-1 capitalize'>
+    <NavLink to={to} className={'p-2'}>
+      {text}
+    </NavLink>
   </li>
 );
 
