@@ -3,7 +3,7 @@ import './App.css';
 
 import Home from './components/Home';
 import Confess from './components/Confess';
-import Misdemeanour from './components/Misdemeanour';
+import Misdemeanours from './components/Misdemeanours';
 import NotFound from './components/NotFound';
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/confess' element={<Confess />} />
-        <Route path='/misdemeanour' element={<Misdemeanour />} />
+        <Route path='/misdemeanours' element={<Misdemeanours />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       <h1>Vite + React</h1>
