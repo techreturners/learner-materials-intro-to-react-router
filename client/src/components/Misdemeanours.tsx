@@ -10,35 +10,31 @@ import { TMisdemeanour, TMisdemeanours } from '../../types/misdemeanours.types';
 // export const MisdemeanoursContext = createContext(defaultMisdemeanour);
 
 const Misdemeanours: React.FC = () => {
-  const [crimes, setCrimes] = useState<TMisdemeanours | null>(null);
+  const [crimes, setCrimes] = useState<Array<TMisdemeanour> | null>(null);
   const url = 'http://localhost:8080/api/misdemeanours/';
   const noOfMisdemeanours = 2;
 
   const getMisdemeanours = async (url: string, noOfMisdemeanours: number) => {
     const response = await fetch(url + noOfMisdemeanours);
     const result = await response.json();
-    console.log('result', result);
-    setCrimes(result);
+    setCrimes(result.misdemeanours);
   };
   useEffect(() => {
     getMisdemeanours(url, noOfMisdemeanours);
-
-    // getMisdemeanours(url, noOfMisdemeanours).catch(console.error);
   }, []);
-
-  console.log('crimes', crimes?.misdemeanours);
-  console.log('isArray crimes', Array.isArray(crimes?.misdemeanours));
 
   return (
     // <MisdemeanoursContext.Provider value={crimes}>
     <main>
-      Misdemeanours
-      {crimes && <>HELLO!!</>}
+      <h1>Misdemeanours</h1>
       <ul>
-        {crimes.misdemeanours.map((crime) => {
-          <p>hello {crime}</p>;
-          // <Misdemeanour value={crime} />
-        })}
+        {crimes &&
+          crimes.map((crime) => (
+            <li>
+              {/* {crime.citizenId} */}
+              <Misdemeanour crime={crime} />
+            </li>
+          ))}
       </ul>
     </main>
     // </MisdemeanoursContext.Provider>

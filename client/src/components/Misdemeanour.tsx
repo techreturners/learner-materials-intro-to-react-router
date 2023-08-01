@@ -13,10 +13,9 @@ interface MisdemeanourProps {
 const Misdemeanour: React.FC<MisdemeanourProps> = ({ crime }) => {
   // const data = useContext(MisdemeanoursContext);
   const { citizenId, misdemeanour, date } = crime;
-  // console.log('stuff', stuff);
   return (
     <main>
-      <h1>hello</h1>
+      <h2>Misdemeanour</h2>
       <p>{citizenId}</p>
       <p>{misdemeanour}</p>
       <p>{date}</p>
