@@ -3,11 +3,11 @@ import { createContext, useEffect, useState } from 'react';
 import Misdemeanour from './Misdemeanour';
 import { TMisdemeanour, TMisdemeanours } from '../../types/misdemeanours.types';
 
-// const defaultMisdemeanour: Array<TMisdemeanour> = [
-//   { citizenId: 13588, misdemeanour: 'vegetables', date: '7/30/2023' },
-// ];
+const defaultMisdemeanour: Array<TMisdemeanour> = [
+  { citizenId: 13588, misdemeanour: 'vegetables', date: '7/30/2023' },
+];
 
-// export const MisdemeanoursContext = createContext(defaultMisdemeanour);
+export const MisdemeanoursContext = createContext(defaultMisdemeanour);
 
 const Misdemeanours: React.FC = () => {
   const [crimes, setCrimes] = useState<Array<TMisdemeanour> | null>(null);
@@ -24,20 +24,21 @@ const Misdemeanours: React.FC = () => {
   }, []);
 
   return (
-    // <MisdemeanoursContext.Provider value={crimes}>
-    <main>
-      <h1>Misdemeanours</h1>
-      <ul>
-        {crimes &&
-          crimes.map((crime) => (
-            <li>
-              {/* {crime.citizenId} */}
-              <Misdemeanour crime={crime} />
-            </li>
-          ))}
-      </ul>
-    </main>
-    // </MisdemeanoursContext.Provider>
+    <MisdemeanoursContext.Provider value={crimes}>
+      <main>
+        <h1>Misdemeanours</h1>
+        <ul>
+          {crimes &&
+            crimes.map((crime) => (
+              <li>
+                {/* <Misdemeanour crime={crime} /> // USING PROPS*/}
+                <Misdemeanour />
+              </li>
+            ))}
+        </ul>
+      </main>
+      //{' '}
+    </MisdemeanoursContext.Provider>
   );
 };
 
