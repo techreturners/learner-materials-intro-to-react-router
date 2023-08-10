@@ -1,11 +1,17 @@
-import { createContext, useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import {
+  createContext,
+  useState,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+} from 'react';
 import { TMisdemeanour } from '../../types/misdemeanours.types';
 
 type MisdemeanourContextType = {
   crimes: TMisdemeanour[];
   loading: boolean;
   error: string;
+  setAmount: Dispatch<SetStateAction<string>>;
 };
 
 type MisdemeanourContextProviderPropsType = {
@@ -16,6 +22,7 @@ export const MisdemeanourContext = createContext<MisdemeanourContextType>({
   crimes: [],
   loading: false,
   error: '',
+  setAmount: () => {},
 });
 
 const MisdemeanourContextProvider = ({
@@ -24,11 +31,9 @@ const MisdemeanourContextProvider = ({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [crimes, setCrimes] = useState<TMisdemeanour[]>([]);
+  const [amount, setAmount] = useState('');
 
-  const { amount } = useParams();
-
-  // const url = `http://localhost:8080/api/misdemeanours/${amount}`;
-  const url = `http://localhost:8080/api/misdemeanours/3`;
+  const url = `http://localhost:8080/api/misdemeanours/${amount}`;
 
   useEffect(() => {
     const getMisdemeanours = async () => {
@@ -50,6 +55,7 @@ const MisdemeanourContextProvider = ({
         crimes,
         loading,
         error,
+        setAmount,
       }}
     >
       {children}
