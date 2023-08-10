@@ -1,4 +1,5 @@
-import { useState, useEffect, createContext } from 'react';
+import { createContext, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import { TMisdemeanour } from '../../types/misdemeanours.types';
 
 type MisdemeanourContextType = {
@@ -24,13 +25,15 @@ const MisdemeanourContextProvider = ({
   const [error, setError] = useState('');
   const [crimes, setCrimes] = useState<TMisdemeanour[]>([]);
 
-  const url = 'http://localhost:8080/api/misdemeanours/';
-  const noOfMisdemeanours = 2; // hardcoded for now
+  const { amount } = useParams();
+
+  // const url = `http://localhost:8080/api/misdemeanours/${amount}`;
+  const url = `http://localhost:8080/api/misdemeanours/3`;
 
   useEffect(() => {
     const getMisdemeanours = async () => {
       try {
-        const response = await fetch(url + noOfMisdemeanours);
+        const response = await fetch(url);
         const result = await response.json();
         setCrimes(result.misdemeanours);
       } catch (error) {
@@ -39,7 +42,7 @@ const MisdemeanourContextProvider = ({
       }
     };
     getMisdemeanours();
-  }, [noOfMisdemeanours]);
+  }, [amount]);
 
   return (
     <MisdemeanourContext.Provider

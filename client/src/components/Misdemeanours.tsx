@@ -10,7 +10,7 @@ const Misdemeanours: React.FC = () => {
       <ul>
         {crimes &&
           crimes.map((crime) => (
-            <li>
+            <li key={crime.citizenId}>
               <Misdemeanour crime={crime} />
             </li>
           ))}
