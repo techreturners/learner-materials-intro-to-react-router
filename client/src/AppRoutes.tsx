@@ -12,6 +12,7 @@ const AppRoutes = () => {
         <Route index element={<Home />} />
         <Route path='/confess' element={<Confess />} />
         <Route path='/misdemeanours' element={<Misdemeanours />} />
+        <Route path='/misdemeanours/:amount' element={<Misdemeanours />} />
         <Route path='/*' element={<NotFound />} />
       </Route>
     </Routes>

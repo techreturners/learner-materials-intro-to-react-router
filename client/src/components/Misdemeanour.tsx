@@ -1,5 +1,3 @@
-import { useContext } from 'react';
-import { MisdemeanoursContext } from './Misdemeanours';
 import { MisdemeanourKind } from '../../types/misdemeanours.types';
 
 interface MisdemeanourProps {
@@ -10,10 +8,7 @@ interface MisdemeanourProps {
   };
 }
 
-const Misdemeanour: React.FC<MisdemeanourProps> = () => {
-  const crime = useContext(MisdemeanoursContext);
-
-  console.log('crime', crime);
+const Misdemeanour: React.FC<MisdemeanourProps> = ({ crime }) => {
   const { citizenId, misdemeanour, date } = crime;
   return (
     <main>

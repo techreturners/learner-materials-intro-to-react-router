@@ -1,16 +1,17 @@
+import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 
-interface ILayoutProps {
-  children: object;
-}
-
-const Layout: React.FC<ILayoutProps> = ({ children }) => (
-  <>
-    <Header />
-    {children}
-    <Footer />
-  </>
-);
+const Layout: React.FC = () => {
+  return (
+    <>
+      <Header />
+      <main>
+        <Outlet />
+      </main>
+      <Footer />
+    </>
+  );
+};
 
 export default Layout;
