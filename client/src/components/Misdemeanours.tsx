@@ -7,7 +7,7 @@ const Misdemeanours: React.FC = () => {
   return (
     <>
       <h1>Misdemeanours</h1>
-      <ul>
+      <ul className='border-2 border-red-100 table'>
         {crimes &&
           crimes.map((crime) => (
             <li key={crime.citizenId}>

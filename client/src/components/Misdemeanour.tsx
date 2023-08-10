@@ -11,12 +11,11 @@ interface MisdemeanourProps {
 const Misdemeanour: React.FC<MisdemeanourProps> = ({ crime }) => {
   const { citizenId, misdemeanour, date } = crime;
   return (
-    <main>
-      <h2>Misdemeanour</h2>
-      <p>{citizenId}</p>
-      <p>{misdemeanour}</p>
-      <p>{date}</p>
-    </main>
+    <ul className='bg-yellow-300 flex justify-between'>
+      <li>{citizenId}</li>
+      <li>{misdemeanour}</li>
+      <li>{date}</li>
+    </ul>
   );
 };
 
