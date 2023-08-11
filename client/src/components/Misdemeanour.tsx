@@ -32,14 +32,12 @@ const Misdemeanour: React.FC<MisdemeanourProps> = ({ crime }) => {
   return (
     <>
       {!loading && <Loading />}
-      <ul className='bg-yellow-300 flex justify-between'>
-        <li>{citizenId}</li>
-        <li>{misdemeanour}</li>
-        <li>{date}</li>
-        <li>
-          <img src={imgSrc} />
-        </li>
-      </ul>
+      <td>{citizenId}</td>
+      <td>{date}</td>
+      <td>{misdemeanour}</td>
+      <td>
+        <img src={imgSrc} />
+      </td>
     </>
   );
 };

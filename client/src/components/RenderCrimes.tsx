@@ -12,15 +12,25 @@ const RenderCrimes: React.FC<RenderCrimesProps> = ({ results }) => {
   const { loading } = useContext(MisdemeanourContext);
   return (
     <>
-      <ul className='border-2 border-red-100 table'>
-        {!loading &&
-          results &&
-          results.map((crime) => (
-            <li key={crime.citizenId}>
-              <Misdemeanour crime={crime} />
-            </li>
-          ))}
-      </ul>
+      {!loading && results && (
+        <table className='table-auto border-2 border-red-100'>
+          <thead>
+            <tr>
+              <th>Citizen ID</th>
+              <th>Date</th>
+              <th>Misdemeanour</th>
+              <th>Punishment Idea</th>
+            </tr>
+          </thead>
+          <tbody>
+            {results.map((crime) => (
+              <tr>
+                <Misdemeanour crime={crime} />
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
       {loading && <Loading />}
     </>
   );
