@@ -2,28 +2,27 @@ import { useContext } from 'react';
 import { MisdemeanourContext } from '../utils/context';
 import { TMisdemeanour } from '../../types/misdemeanours.types';
 import Misdemeanour from './Misdemeanour';
+import Loading from './Loading';
 
 interface RenderCrimesProps {
-  crimes: Array<TMisdemeanour>;
-  filteredCrimes: Array<TMisdemeanour>;
+  results: Array<TMisdemeanour>;
 }
 
-const RenderCrimes: React.FC<RenderCrimesProps> = ({
-  crimes,
-  filteredCrimes,
-}) => {
+const RenderCrimes: React.FC<RenderCrimesProps> = ({ results }) => {
   const { loading } = useContext(MisdemeanourContext);
-  const results = filteredCrimes.length !== 0 ? filteredCrimes : crimes;
   return (
-    <ul className='border-2 border-red-100 table'>
-      {!loading &&
-        results &&
-        results.map((crime) => (
-          <li key={crime.citizenId}>
-            <Misdemeanour crime={crime} />
-          </li>
-        ))}
-    </ul>
+    <>
+      <ul className='border-2 border-red-100 table'>
+        {!loading &&
+          results &&
+          results.map((crime) => (
+            <li key={crime.citizenId}>
+              <Misdemeanour crime={crime} />
+            </li>
+          ))}
+      </ul>
+      {loading && <Loading />}
+    </>
   );
 };
 

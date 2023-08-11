@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { MisdemeanourContext } from '../utils/context';
-// import Misdemeanour from './Misdemeanour';
 import { TMisdemeanour } from '../../types/misdemeanours.types';
 import Filter from './Filter';
 import RenderCrimes from './RenderCrimes';
+import Loading from './Loading';
 
 const Misdemeanours: React.FC = () => {
   const { crimes, setAmount, loading } = useContext(MisdemeanourContext);
@@ -21,6 +21,7 @@ const Misdemeanours: React.FC = () => {
       );
   }, [selectedMisdemeanour]);
 
+  const results = filteredCrimes.length !== 0 ? filteredCrimes : crimes;
   return (
     <>
       <Filter
@@ -28,12 +29,8 @@ const Misdemeanours: React.FC = () => {
         setSelectedMisdemeanour={setSelectedMisdemeanour}
       />
       <h1>Misdemeanours</h1>
-      {loading && (
-        <div className='text-white font-semibold text-center p-2 my-2'>
-          Loading...
-        </div>
-      )}
-      <RenderCrimes crimes={crimes} filteredCrimes={filteredCrimes} />
+      {loading && <Loading />}
+      <RenderCrimes results={results} />
       {!loading && crimes && crimes.length === 0 && <li>No results</li>}
     </>
   );
