@@ -16,8 +16,8 @@ This is your chance to show off everything you've learned about building React a
 
 Remember the importance of:
 
--   Writing tests for your components
--   Using BEM/OOCSS to write scalable, reusable CSS
+-   Writing tests for your components (!!)
+-   Using BEM/OOCSS/Tailwind or a framework of your choice to write scalable, reusable CSS
 -   Keeping your components small and refactoring them into sub-components where necessary
 -   Using hooks to store state, make API calls, and pass data down to sub-components through contexts
 

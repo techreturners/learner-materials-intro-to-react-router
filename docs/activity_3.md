@@ -4,7 +4,7 @@
 
 Here's the design for this page:
 
-![Confess To Us](./images/confess.png 'Sketched confession page')
+![Confess To Us](./images/confess.png "Sketched confession page")
 
 Well, that's pretty surprising.
 
@@ -12,11 +12,11 @@ Well, that's pretty surprising.
 
 It looks like they want a form with three elements.
 
--   A subject line for the confession.
+- A subject line for the confession.
 
--   A dropdown for the reason for the confession. This could be either a type of misdemeanour, or "I just want to talk"
+- A dropdown for the reason for the confession. This could be either a type of misdemeanour, or "I just want to talk"
 
--   A text box for details
+- A text box for details
 
 ## Form Behaviour - on the Client
 
@@ -85,4 +85,18 @@ You must POST the above form data to the endpoint:
 
 ## The Next Level 🔥
 
-If you're feeling up to it, [activity 4](./activity_4.md) has some suggestions for taking your app to new heights - including deploying it live on the internet! 🤩
+If your application:
+
+- Isn't broken 😅
+- Has the ability to navigate to different pages using React Router
+- Has the ability to view a list of misdemeanours with different punishment ideas
+- Has the ability to filter misdemeanours
+- Has a form that adds a misdemeanour to the misdemeanour list and Posts the misdemeanour to the server
+- Has decent test coverage (20 - 50 tests)
+
+THEN YOU'RE READY FOR THE NEXT LEVEL 🔥🙌🔥🙌🔥
+
+If anything from the above checklist is missing though, take a little time getting these things working before moving on to
+the next part 🙂
+
+[Activity 4](./activity_4.md) has some suggestions for taking your app to new heights - including deploying it live on the internet! 🤩
