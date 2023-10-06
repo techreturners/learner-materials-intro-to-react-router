@@ -81,8 +81,6 @@ You must POST the above form data to the endpoint:
 
 3️⃣ If `justTalked` is `true`, you don't have to do anything.
 
-👉 Hold on! Have you been writing quality, valid, [accessible HTML](https://reactjs.org/docs/accessibility.html#semantic-html)? Maybe now is a good time to run your generated HTML through a validator and see! To do this, you can open your app in the browser and copy/paste the HTML from dev tools into a validator. 🙌
-
 ## The Next Level 🔥
 
 If your application:
