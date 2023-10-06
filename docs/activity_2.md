@@ -79,17 +79,23 @@ We can knowingly break the rule of Don't Repeat Yourself, but with the knowledge
 
 👉 Use `fetch` in your application to get misdemeanour data from the server, with the constraint that you ONLY want to fetch new data when you hit `F5` or otherwise fully refresh the page.
 
-💡 Hint: `useEffect` can help here. If you don't pass any dependencies into the dependency array, it will only fire once!
+💡 Hint: [`useEffect`](https://react.dev/reference/react/useEffect#updating-state-based-on-previous-state-from-an-effect) can help here. If you don't pass any dependencies into the dependency array, it will only fire once! But remember, `useEffect` should ONLY be used for communicating with external systems, so make sure you're using it correctly.
 
-❗ The `fetch` function is asynchronous so be sure to `await` the results.
+❗ The `fetch` function is asynchronous so be sure to `await` the results (if you need a reminder of `async/await` revisit the "Promises & Asynchronous Programming" session and assignment you did for this).
 
 ❗ The response from a `fetch` has an async convenience method called `.json()`. You can `await` the result of this to get the JSON body of the response.
 
+Note: if you're using `async/await` you shouldn't need to use `.then()`
+
 ❗ Think about where your `fetch` should live. Can you abstract the `fetch` code outside of your components? Which component should "own" this data?
+
+🔥 Stretch goal: Could you create a reusable hook here? You can use this one to inspire you: https://github.com/techreturners/lm-lab-react-hooks-solution/blob/main/src/components/hooks/use_x/use_fetch_data.tsx
 
 ❗ Store the resulting list of misdemeanours in state.
 
-👉 Make this state accessible via `useContext` so you can consume it in sub-components you will write next.
+👉 Make this state accessible via `useContext` so you can consume it in sub-components you will write next. Take a look at lines 44 and 47 here: https://github.com/techreturners/lm-lab-react-hooks-solution/blob/main/src/components/hooks/use_context-solution_2/theme_context.tsx
+
+Could you pass your `misdemeanours` and `setMisdemeanours` function in a similar way? 🤔
 
 👉 Add sub-components to the Misdemeanours page to render all of the misdemeanours in a list.
 
