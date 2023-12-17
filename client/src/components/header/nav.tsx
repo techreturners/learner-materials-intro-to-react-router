@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-const Nav = () => <nav className = "navbar">
+const Nav = () => <nav className = "header__navbar">
     <ul className = "navbar__list">
         <li className = "navbar__item"><NavLink to = "/">Home</NavLink></li>
         <li className = "navbar__item"><NavLink to = "/misdemeanours">Misdemeanours</NavLink>

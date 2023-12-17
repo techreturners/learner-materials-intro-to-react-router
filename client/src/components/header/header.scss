@@ -5,4 +5,26 @@
     padding: 0;
     background-color: $silver;
     color: $fire;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    @include respond-medium {
+        flex-direction: row;
+    }
+
+    &__heading {
+        flex-basis: 100%; 
+
+        @include respond-medium {
+            flex-basis: 20%;
+        }
+    }
+
+    &__navbar {
+        flex-basis: 100%;
+
+        @include respond-medium {
+            flex-basis: 60%;
+        }
+    }
 }
