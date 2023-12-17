@@ -1,5 +1,5 @@
 
-const Footer = () => <footer>
+const Footer = () => <footer className = "footer">
     <p>@ Annette Le Sage 2024</p>
     <p>Fakelandia</p>
 </footer>;
