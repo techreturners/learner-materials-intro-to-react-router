@@ -2,29 +2,26 @@
     width: 100%;
     display: flex;
     margin: 0;
-    padding: 0;
+    padding: 2%;
     background-color: $silver;
     color: $fire;
     flex-wrap: wrap;
     flex-direction: column;
+    box-sizing: border-box;
 
     @include respond-medium {
         flex-direction: row;
     }
 
     &__heading {
-        flex-basis: 100%; 
+        flex-basis: 50%; 
+        font-size: 1.3rem;
+        margin: 2%;
 
         @include respond-medium {
-            flex-basis: 20%;
-        }
-    }
-
-    &__navbar {
-        flex-basis: 100%;
-
-        @include respond-medium {
-            flex-basis: 60%;
+            flex-basis: 25%;
+            font-size: 2rem;
+            margin: 0;
         }
     }
 }

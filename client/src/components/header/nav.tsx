@@ -1,22 +1,15 @@
 import { NavLink } from "react-router-dom";
 
-const Nav = () => <nav className = "header__navbar">
+const Nav = () => <nav className = "navbar">
+    <span className = "navbar__element">
+    <span className = "navbar__element--bars"><i className="fa fa-bars"></i></span>
     <ul className = "navbar__list">
-        <li className = "navbar__item"><NavLink to = "/">Home</NavLink></li>
-        <li className = "navbar__item"><NavLink to = "/misdemeanours">Misdemeanours</NavLink>
-            <ul>
-                <li><NavLink to = "/misdemeanours/mild_public_rudeness">
-                    Mild Public Rudeness</NavLink></li>
-                <li><NavLink to = "/misdemeanours/speaking_in_a_lift">
-                    Speaking In A Lift</NavLink></li>
-                <li><NavLink to = "/misdemeanours/not_eating_your_vegetables">
-                    Not Eating Your Vegetables</NavLink></li>
-                    <li><NavLink to = "/misdemeanours/supporting_manchester_united">
-                    Supporting Manchester United</NavLink></li>
-            </ul>
+        <li className = "navbar__item navbar__item--dark"><NavLink to = "/">Home</NavLink></li>
+        <li className = "navbar__item navbar__item--dark"><NavLink to = "/misdemeanours">Misdemeanours</NavLink></li>
+        <li className = "navbar__item navbar__item--dark"><NavLink to = "/confession">Confess To Us</NavLink>
         </li>
-        <li className = "navbar__item"><NavLink to = "/confession">Confess To Us</NavLink></li>
     </ul>
+    </span>
 </nav>;
 
 export default Nav;

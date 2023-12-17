@@ -1,3 +1,12 @@
-.misdemeanour {
-    background-color: aliceblue;
+.container {
+  margin : 2%;
+  padding: 0;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+
+  @include respond-medium {  
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
   }
+}
