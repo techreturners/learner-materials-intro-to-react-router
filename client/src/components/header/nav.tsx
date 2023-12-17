@@ -1,9 +1,9 @@
 import { NavLink } from "react-router-dom";
 
-const Nav = () => <nav>
-    <ul className = "navbar">
-        <li><NavLink to = "/">Home</NavLink></li>
-        <li><NavLink to = "/misdemeanours">Misdemeanours</NavLink>
+const Nav = () => <nav className = "navbar">
+    <ul className = "navbar__list">
+        <li className = "navbar__item"><NavLink to = "/">Home</NavLink></li>
+        <li className = "navbar__item"><NavLink to = "/misdemeanours">Misdemeanours</NavLink>
             <ul>
                 <li><NavLink to = "/misdemeanours/mild_public_rudeness">
                     Mild Public Rudeness</NavLink></li>
@@ -15,7 +15,7 @@ const Nav = () => <nav>
                     Supporting Manchester United</NavLink></li>
             </ul>
         </li>
-        <li><NavLink to = "/confession">Confess To Us</NavLink></li>
+        <li className = "navbar__item"><NavLink to = "/confession">Confess To Us</NavLink></li>
     </ul>
 </nav>;
 
