@@ -1,8 +1,8 @@
 import Nav from "./nav";
 
-const Header = () => <header>
+const Header = () => 
+    <header className="header">
+    <h1 className="header">Fakelandia Justice Department</h1>
     <Nav/>
-    <h1 className="header">Header</h1>
-    
 </header>
 export default Header;
