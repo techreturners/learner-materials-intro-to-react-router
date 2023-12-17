@@ -1,0 +1,11 @@
+.navbar {
+  position: sticky;
+  align-items: left;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 1000;
+  max-height:fit-content;
+}
