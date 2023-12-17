@@ -6,3 +6,17 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
+
+.container {
+  margin : 2%;
+  padding: 2%;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: minmax(0, 1fr);
+  position: relative;
+  font-size: 1.2rem;
+
+  @include respond-medium {  
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

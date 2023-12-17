@@ -1,4 +1,9 @@
 
-const Home : React.FC = () => <>Home!</>;
+const Home : React.FC = () => 
+<>
+<section className = "container">
+Home!
+</section>
+</>;
 
 export default Home;
