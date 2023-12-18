@@ -6,7 +6,6 @@
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     position: relative;
     font-size: 1.2rem;
-    border: 1px solid red;
   
     @include respond-medium {  
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);

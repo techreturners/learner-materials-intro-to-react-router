@@ -10,7 +10,7 @@ interface MisdemeanourResponse {
 
 const Misdemeanours : React.FC<MisdemeanoursProps> = ({url}) => {
 
-const response = useFetch<MisdemeanourResponse>(url);;
+const response = useFetch<MisdemeanourResponse>(url);
 return (
 <>
     <h2 className = "title">Misdemeanours!</h2>
