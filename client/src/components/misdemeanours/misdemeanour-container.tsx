@@ -22,7 +22,8 @@ return (
     <h2 className = "title">Misdemeanours!</h2>
 		{response.isFetching ? 
 		<p>Fetching...</p> 
-		: <p>Misdemeanours:</p>}
+		: <p>Here is some information</p>}
+    
     <section className = "container">
         {response.data && response.data.misdemeanours &&
         response.data.misdemeanours.map((item: Misdemeanour) => {

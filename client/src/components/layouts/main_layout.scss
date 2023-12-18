@@ -7,3 +7,11 @@
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
 }
+
+.title {
+  background-color: $straw;
+  color: $dark-blue;
+  margin: 0;
+  padding: 2%;
+  text-align: center;
+}
