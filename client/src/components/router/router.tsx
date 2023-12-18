@@ -3,18 +3,21 @@ import MainLayout from "../../components/layouts/main_layout";
 import NotFound from "../not_found/not_found";
 import Home from "../../components/home/home";
 import Confession from "../confession/confession";
-import Misdemeanours from "../misdemeanours/misdemeanours";
-import MildPublicRudeness from "../misdemeanours/misdemeanour/mild_public_rudeness";
-import SpeakingInALift from "../misdemeanours/misdemeanour/speaking_in_a_lift";
-import NotEatingYourVegetables from "../misdemeanours/misdemeanour/not_eating_your_vegetables";
-import SupportingManchesterUnited from "../misdemeanours/misdemeanour/supporting_manchester_united";
+import Misdemeanours from "../misdemeanours/misdemeanour-container";
+import MildPublicRudeness from "../misdemeanours/types/mild_public_rudeness";
+import SpeakingInALift from "../misdemeanours/types/speaking_in_a_lift";
+import NotEatingYourVegetables from "../misdemeanours/types/not_eating_your_vegetables";
+import SupportingManchesterUnited from "../misdemeanours/types/supporting_manchester_united";
+
 
 export const Router = () => {
     return (
     <Routes>
         <Route path = "/" element = {<MainLayout/>}>
             <Route index element = {<Home/>}/>
-            <Route path = "misdemeanours" element = {<Misdemeanours/>}/>
+            <Route path = "misdemeanours" element = {<Misdemeanours 
+            url = "http://localhost:8080/api/misdemeanours/3"
+            />}/>
                 <Route path = "misdemeanours/mild_public_rudeness" 
                 element = {<MildPublicRudeness />}/>
                 <Route path = "misdemeanours/speaking_in_a_lift" 
