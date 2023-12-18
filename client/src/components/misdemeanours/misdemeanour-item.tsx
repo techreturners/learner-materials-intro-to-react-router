@@ -1,10 +1,6 @@
-export interface MisdemeanourProps {
-    citizenId: number,
-	misdemeanour: string,
-    date: string
-}
+import {Misdemeanour} from "../../../types/misdemeanours.types";
 
-const Misdemeanour : React.FC<MisdemeanourProps> = ({citizenId, misdemeanour, date}) => {
+const MisdemeanourItem : React.FC<Misdemeanour> = ({citizenId, misdemeanour, date}) => {
 
     return (
     <>
@@ -15,4 +11,4 @@ const Misdemeanour : React.FC<MisdemeanourProps> = ({citizenId, misdemeanour, da
     </>
     )
     }
-export default Misdemeanour;
+export default MisdemeanourItem;

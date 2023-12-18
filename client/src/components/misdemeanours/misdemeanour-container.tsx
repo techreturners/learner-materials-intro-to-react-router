@@ -1,15 +1,9 @@
 import { useFetch} from "../../hooks/use_fetch";
-import Misdemeanour from "./misdemeanour";
-
+import {Misdemeanour} from "../../../types/misdemeanours.types";
+import MisdemeanourItem from "./misdemeanour-item";
 interface MisdemeanoursProps {
     url: string;
 }
-interface Misdemeanour {
-    citizenId: number,
-    misdemeanour: string,
-    date: string
-}
-
 interface MisdemeanourResponse {
     misdemeanours: Array<Misdemeanour>
 }
@@ -27,7 +21,7 @@ return (
     <section className = "container">
         {response.data && response.data.misdemeanours &&
         response.data.misdemeanours.map((item: Misdemeanour) => {
-        return <Misdemeanour key={item.citizenId} citizenId={item.citizenId} 
+        return <MisdemeanourItem key={item.citizenId} citizenId={item.citizenId} 
         misdemeanour = {item.misdemeanour} date = {item.date}/>
         })} 
     </section>
