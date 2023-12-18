@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { isError } from '../helpers/is_error';
-
 export interface FetchResponse<T> {
 	data: T | null;
     isFetching: boolean;
