@@ -61,7 +61,11 @@
         text-decoration: none;
         word-break:keep-all;
         cursor: pointer;
-        }
+      }
+
+      &--dark a:active {
+        background-color: $noodles;
+      }
     
       &--dark a:hover {
         color: $fire;
