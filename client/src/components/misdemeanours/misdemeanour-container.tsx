@@ -16,23 +16,19 @@ interface MisdemeanourResponse {
 
 const Misdemeanours : React.FC<MisdemeanoursProps> = ({url}) => {
 
-const response = useFetch<MisdemeanourResponse>(url);
-console.log(response.data?.misdemeanours);
+const response = useFetch<MisdemeanourResponse>(url);;
 return (
 <>
-    <section className = "container">
-    <h2>Misdemeanours!</h2>
+    <h2 className = "title">Misdemeanours!</h2>
 		{response.isFetching ? 
 		<p>Fetching...</p> 
 		: <p>Misdemeanours:</p>}
-        
-		<div className = "container">
+    <section className = "container">
         {response.data && response.data.misdemeanours &&
         response.data.misdemeanours.map((item: Misdemeanour) => {
-        return <Misdemeanour key={item.citizenId} id={item.citizenId} 
+        return <Misdemeanour key={item.citizenId} citizenId={item.citizenId} 
         misdemeanour = {item.misdemeanour} date = {item.date}/>
         })} 
-		</div>
     </section>
 </>
 )

@@ -8,12 +8,10 @@ const Misdemeanour : React.FC<MisdemeanourProps> = ({citizenId, misdemeanour, da
 
     return (
     <>
-        <div>
-        A single Misdemeanour!
-        <p>Citizen Id: {citizenId}</p>
-        <p>Misdemeanour: {misdemeanour}</p>
-        <p>Date: {date}</p>
-        </div>
+        <div className = "cell">Citizen Id: {citizenId}</div>
+        <div className = "cell">Misdemeanour: {misdemeanour}</div>
+        <div className = "cell">Date: {date}</div>
+        <div className = "cell">Images goes here</div>
     </>
     )
     }
