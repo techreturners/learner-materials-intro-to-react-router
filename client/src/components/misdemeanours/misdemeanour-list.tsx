@@ -12,25 +12,22 @@ type Misdemeanours  = Array<Misdemeanour>;
 
 const MisdemeanourList : React.FC<MisdemeanoursProps> = ({url}) => {
 
-const [data, setData] = useState<Misdemeanours>();
-const [isFetching, setIsFetching] = useState(true);
+const [data, setData] = useState<Misdemeanours>([]);
 
-useFetch(url, "misdemeanours", setData, isFetching, setIsFetching);
+const fetching = useFetch(url, "misdemeanours", setData);
 
 return (
 <>
     <h2 className = "title">Misdemeanours!</h2>
-		{isFetching ? 
-		<ShowLoading /> 
-		:
+		{fetching && 
+		<ShowLoading /> }
     <section className = "container">
-        {data && 
+        {!fetching && data && 
         data.map((item: Misdemeanour) => {
         return <MisdemeanourItem key={item.citizenId} citizenId={item.citizenId} 
         misdemeanour = {item.misdemeanour} date = {item.date}/>
         })} 
     </section>
-}
 </>
 )
 }
