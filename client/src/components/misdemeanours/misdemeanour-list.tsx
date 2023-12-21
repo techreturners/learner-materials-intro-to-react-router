@@ -3,30 +3,30 @@ import { useFetch} from "../../hooks/use_fetch";
 import {Misdemeanour} from "../../../types/misdemeanours.types";
 import MisdemeanourItem from "./misdemeanour-item";
 import ShowLoading from "../loading/show_loading";
+
 interface MisdemeanoursProps {
     url: string;
 }
-interface MisdemeanourResponse {
-    misdemeanours: Array<Misdemeanour> | null;
-}
 
-const Misdemeanours : React.FC<MisdemeanoursProps> = ({url}) => {
+type Misdemeanours  = Array<Misdemeanour>;
 
-const [data, setData] = useState(null);
-const response = useFetch<MisdemeanourResponse>(url, data, setData);
+const MisdemeanourList : React.FC<MisdemeanoursProps> = ({url}) => {
 
-console.log(data);
+const [data, setData] = useState<Misdemeanours>();
+const [isFetching, setIsFetching] = useState(true);
+
+useFetch(url, "misdemeanours", setData, isFetching, setIsFetching);
 
 return (
 <>
     <h2 className = "title">Misdemeanours!</h2>
-		{response.isFetching ? 
+		{isFetching ? 
 		<ShowLoading /> 
 		: <p>Here is some information</p>}
     
     <section className = "container">
-        {response.data && response.data.misdemeanours &&
-        response.data.misdemeanours.map((item: Misdemeanour) => {
+        {data && 
+        data.map((item: Misdemeanour) => {
         return <MisdemeanourItem key={item.citizenId} citizenId={item.citizenId} 
         misdemeanour = {item.misdemeanour} date = {item.date}/>
         })} 
@@ -34,4 +34,4 @@ return (
 </>
 )
 }
-export default Misdemeanours;
+export default MisdemeanourList;

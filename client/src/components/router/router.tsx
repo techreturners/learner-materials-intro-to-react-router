@@ -3,11 +3,11 @@ import MainLayout from "../../components/layouts/main_layout";
 import NotFound from "../not_found/not_found";
 import Home from "../../components/home/home";
 import Confession from "../confession/confession";
-import Misdemeanours from "../misdemeanours/misdemeanour-container";
-import MildPublicRudeness from "../misdemeanours/types/mild_public_rudeness";
-import SpeakingInALift from "../misdemeanours/types/speaking_in_a_lift";
-import NotEatingYourVegetables from "../misdemeanours/types/not_eating_your_vegetables";
-import SupportingManchesterUnited from "../misdemeanours/types/supporting_manchester_united";
+import MisdemeanourList from "../misdemeanours/misdemeanour-list";
+import MildPublicRudeness from "../misdemeanours/misdemeanour-type/mild_public_rudeness";
+import SpeakingInALift from "../misdemeanours/misdemeanour-type/speaking_in_a_lift";
+import NotEatingYourVegetables from "../misdemeanours/misdemeanour-type/not_eating_your_vegetables";
+import SupportingManchesterUnited from "../misdemeanours/misdemeanour-type/supporting_manchester_united";
 
 
 export const Router = () => {
@@ -15,7 +15,7 @@ export const Router = () => {
     <Routes>
         <Route path = "/" element = {<MainLayout/>}>
             <Route index element = {<Home/>}/>
-            <Route path = "misdemeanours" element = {<Misdemeanours 
+            <Route path = "misdemeanours" element = {<MisdemeanourList 
             url = "http://localhost:8080/api/misdemeanours/10"
             />}/>
                 <Route path = "misdemeanours/mild_public_rudeness" 

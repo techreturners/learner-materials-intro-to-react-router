@@ -1,15 +1,9 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { isError } from '../helpers/is_error';
-export interface FetchResponse<T> {
-	data: T | null;
-    isFetching: boolean;
-}
 
-export const useFetch = <T>
-	(endPoint:string, data: T | null, setData: React.Dispatch<React.SetStateAction<null>>)
-	: FetchResponse<T> => {
-
-    const [isFetching, setIsFetching] = useState(true);
+export const useFetch = <T>(endPoint:string, dataProperty:string | null, 
+		setData: React.Dispatch<React.SetStateAction<T>>,
+		isFetching: boolean, setIsFetching: React.Dispatch<React.SetStateAction<boolean>>)=> {
 
     useEffect(() => {
 		const fetchData = async () => {
@@ -18,17 +12,17 @@ export const useFetch = <T>
                 setIsFetching(false);
 				if (response.status === 200) {
 					const json = await response.json();
-					setData(json);
+					dataProperty !== null? setData(json[dataProperty]): setData(json);
 				}
 			} catch (error) {
                 setIsFetching(false);
                 console.log(isError(error) ? error.message : 'Unknown error!');
 			}
 		};
-		fetchData();
+		if (isFetching) {
+			fetchData();
+		}
 	});
-  
-    return {data, isFetching};
   };
   
   export default useFetch;
