@@ -1,21 +1,27 @@
+import { useState } from "react";
 import { useFetch} from "../../hooks/use_fetch";
 import {Misdemeanour} from "../../../types/misdemeanours.types";
 import MisdemeanourItem from "./misdemeanour-item";
+import ShowLoading from "../loading/show_loading";
 interface MisdemeanoursProps {
     url: string;
 }
 interface MisdemeanourResponse {
-    misdemeanours: Array<Misdemeanour>
+    misdemeanours: Array<Misdemeanour> | null;
 }
 
 const Misdemeanours : React.FC<MisdemeanoursProps> = ({url}) => {
 
-const response = useFetch<MisdemeanourResponse>(url);
+const [data, setData] = useState(null);
+const response = useFetch<MisdemeanourResponse>(url, data, setData);
+
+console.log(data);
+
 return (
 <>
     <h2 className = "title">Misdemeanours!</h2>
 		{response.isFetching ? 
-		<p>Fetching...</p> 
+		<ShowLoading /> 
 		: <p>Here is some information</p>}
     
     <section className = "container">

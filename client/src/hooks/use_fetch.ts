@@ -5,9 +5,10 @@ export interface FetchResponse<T> {
     isFetching: boolean;
 }
 
-export const useFetch = <T>(endPoint: string): FetchResponse<T> => {
+export const useFetch = <T>
+	(endPoint:string, data: T | null, setData: React.Dispatch<React.SetStateAction<null>>)
+	: FetchResponse<T> => {
 
-    const [data, setData] = useState(null);
     const [isFetching, setIsFetching] = useState(true);
 
     useEffect(() => {
@@ -25,7 +26,7 @@ export const useFetch = <T>(endPoint: string): FetchResponse<T> => {
 			}
 		};
 		fetchData();
-	}, [endPoint]);
+	});
   
     return {data, isFetching};
   };
