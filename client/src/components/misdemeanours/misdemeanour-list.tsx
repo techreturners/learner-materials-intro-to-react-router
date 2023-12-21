@@ -22,8 +22,7 @@ return (
     <h2 className = "title">Misdemeanours!</h2>
 		{isFetching ? 
 		<ShowLoading /> 
-		: <p>Here is some information</p>}
-    
+		:
     <section className = "container">
         {data && 
         data.map((item: Misdemeanour) => {
@@ -31,6 +30,7 @@ return (
         misdemeanour = {item.misdemeanour} date = {item.date}/>
         })} 
     </section>
+}
 </>
 )
 }
