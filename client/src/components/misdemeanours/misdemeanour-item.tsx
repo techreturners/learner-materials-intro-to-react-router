@@ -1,6 +1,12 @@
-import {Misdemeanour, MISDEMEANOUR_ICONS} 
-from "../../../types/misdemeanours.types";
+import {Misdemeanour} from "../../../types/misdemeanours.types";
 
+const MISDEMEANOUR_ICONS = {
+	rudeness: "🤪",
+	vegetables:  "🥗",
+	lift: "🗣",
+	united:  "😈",
+ }
+ 
 const MisdemeanourItem : React.FC<Misdemeanour> = ({citizenId, misdemeanour, date}) => {
 
     return (
