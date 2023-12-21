@@ -1,30 +1,31 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { isError } from '../helpers/is_error';
 
 export const useFetch = <T>(endPoint:string, dataProperty:string | null, 
-		setData: React.Dispatch<React.SetStateAction<T>>): boolean => {
-
-	const [isFetching, setIsFetching] = useState(true);
+	data: Array<T>, setData: React.Dispatch<React.SetStateAction<Array<T>>>)=> {
 
     useEffect(() => {
+		let rendered = false;
 		const fetchData = async () => {
 			try {
 				const response = await fetch(endPoint);
 				if (response.status === 200) {
-					setIsFetching(false);
 					const json = await response.json();
+					if (!rendered) {
 					dataProperty !== null? setData(json[dataProperty]): setData(json);
+					}
 				}
 			} catch (error) {
-				setIsFetching(false);
                 console.log(isError(error) ? error.message : 'Unknown error!');
 			}
 		};
-		if (isFetching) {
-			fetchData();
+		if (data.length === 0) {
+		fetchData();
+		return () => {
+			rendered = true;
+		  };
 		}
 	});
-	return isFetching;
   };
   
   export default useFetch;

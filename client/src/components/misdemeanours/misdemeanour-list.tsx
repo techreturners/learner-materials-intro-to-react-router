@@ -8,21 +8,20 @@ interface MisdemeanoursProps {
     url: string;
 }
 
-type Misdemeanours  = Array<Misdemeanour>;
-
 const MisdemeanourList : React.FC<MisdemeanoursProps> = ({url}) => {
 
-const [data, setData] = useState<Misdemeanours>([]);
+const [data, setData] = useState<Array<Misdemeanour>>([]);
 
-const fetching = useFetch(url, "misdemeanours", setData);
+const response = useFetch<Misdemeanour>(url, "misdemeanours", data, setData);
+console.log(response);
 
 return (
 <>
     <h2 className = "title">Misdemeanours!</h2>
-		{fetching && 
+		{data.length === 0 && 
 		<ShowLoading /> }
     <section className = "container">
-        {!fetching && data && 
+        {data.length > 0 && 
         data.map((item: Misdemeanour) => {
         return <MisdemeanourItem key={item.citizenId} citizenId={item.citizenId} 
         misdemeanour = {item.misdemeanour} date = {item.date}/>
